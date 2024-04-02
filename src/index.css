@@ -1,13 +1,452 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background-color: #fffaf1;
+    color: #222;
+    font-family: "Khula", sans-serif;
+    font-weight: 300;
+}
+
+
+.wrapper {
+    width: 1280px;
+    margin: 50px auto;
+}
+
+header .image {
+    padding: 10px;
+    width: 106px;
+    height: 105px;
+    background-size: cover;
+    background: url("./img/image.png") no-repeat center, center;
+    background-blend-mode: multiply;
+    background-color: #fffaf1;
+    color: #fffaf1;
+}
+
+header .logo {
+    font-weight: lighter;
+    font-size: 48px;
+    position: absolute;
+    top: 80px;
+    left: 225px;
+}
+
+header ul.nav {
+    list-style: none;
+    float: right;
+    position: absolute;
+    top: 105px;
+    left: 770px;
+}
+
+header ul.nav li {
+    display: inline;
+    margin-left: 25px;
+    cursor: pointer;
+    transition: opacity 500ms ease;
+}
+
+header ul.nav li:hover {
+    opacity: 0.5;
+}
+
+header .border {
+    width: 100%;
+    border-bottom: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.presentation {
+    margin: 35px 0;
+    width: 100%;
+    height: 1775px;
+    background-size: cover;
+    background: url("./img/presentation.jpg") no-repeat center, right;
+    background-blend-mode: multiply;
+    background-color: #bcbcbc;
+    position: relative;
+    color: #fffaf1;
+}
+
+.presentation::after {
+    content: "Доверьте нам свои потребности, и мы сделаем все возможное, чтобы сделать Ваш выбор быстрым, удобным и надежным!";
+    position: absolute;
+    top: 245px;
+    left: 50px;
+    font-weight: bold;
+    font-size: 96px;
+
+}
+
+.presentation::before {
+    content: "Готовы начать?";
+    position: absolute;
+    top: 1400px;
+    left: 200px;
+    font-size: 48px;
+}
+
+.presentation button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border-radius: 50px;
+    margin-left: 25px;
+
+    font-size: 32px;
+    font-weight: lighter;
+    position: absolute;
+    top: 1380px;
+    left: 550px;
+
+    padding: 32px 64px;
+    transition: opacity 500ms ease;
+    cursor: pointer;
+}
+
+.presentation button:hover {
+    opacity: 0.5;
+}
+
+.presentation button.reg {
+    border: 0;
+    background: #fffaf1;
+}
+
+.presentation button.log {
+    position: relative;
+    left: 900px;
+    padding: 32px 110px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #fffaf1;
+    color: #fffaf1;
+}
+
+.categories {
+    padding: 50px;
+}
+
+.categories div {
+    display: inline-block;
+    background: #f2f2f2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 500ms ease;
+}
+
+.categories div:hover {
+    border-color: silver;
+    transform: scale(1.1);
+}
+
+.full-item {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10000;
+    overflow: auto;
+}
+
+.full-item > div {
+    width: 600px;
+    position: relative;
+    margin: 10% auto;
+    padding: 40px 30px;
+    background: #fffaf1;
+    border-radius: 9px;
+}
+
+.full-item .close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    transition: transform 500ms ease;
+}
+
+.full-item .close:hover {
+    transform: scale(1.2);
+    color: #ef4444;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+main .item, main .my-item{
+    width: 30%;
+    margin-bottom: 50px;
+    background: #f5f5f5;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+main .item img, .full-item img, .show-profile img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    transition: transform 500ms ease;
+    cursor: pointer;
+}
+
+.full-item img {
+    cursor: inherit;
+}
+
+main .item img:hover,
+.full-item .item img:hover{
+    transform: scale(1.05);
+}
+
+main .my-item {
+    margin-top: 35px;
+}
+
+main h1, main h2, main p, main b,
+.full-item h1, .full-item h2, .full-item h3, .full-item p, .full-item b, .my-item h3, .item h3,
+.show-profile h1, .show-profile h2, .show-profile h3, .show-profile p , .show-profile b{
+    margin: 10px 20px;
+    color: #333;
+}
+
+.full-item h3 {
+    font-weight: normal;
+}
+
+main p.info, .full-item p.info, .show-profile p.info {
+    font-weight: normal;
+}
+
+main b, .full-item b, .show-profile b {
+    color: #5fa365;
+}
+
+main .rating, .full-item .rating, .show-profile .rating{
+    color: orange;
+    height: 12px;
+}
+
+p.confirm {
+    padding: 50px;
+    font-weight: normal;
+    font-size: 70px;
+}
+
+.auth {
+    padding: 35px;
+}
+
+.auth button.reset-button {
+    background: #f2f2f2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-left: 520px;
+    margin-top: 50px;
+    font-size:16px;
+    font-weight: lighter;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 500ms ease;
+}
+
+.auth button.reset-button:hover {
+    border-color: silver;
+    transform: scale(1.1);
+}
+
+.profile {
+    margin-top: 35px;
+}
+
+.profile .logout {
+    margin-top: 70px;
+    margin-left: 515px;
+}
+
+.check {
+    position: absolute;
+    top: 230px;
+    right: 180px;
+    color: green;
+}
+
+.need-to-confirm {
+    position: absolute;
+    left: 380px;
+    top: 465px;
+}
+
+.show-profile {
+    margin-top: 35px;
+    margin-left: 290px;
+    width: 50%;
+    background-color: #f5f5f5;;
+    position: relative;
+
+    margin-bottom: 50px;
+    overflow: hidden;
+    padding: 40px 30px;
+}
+
+.show-profile .edit-button {
+    position: absolute;
+    top: 5px;
+    left: 650px;
+    font-size: 30px;
+    transition: opacity 500ms ease;
+}
+
+.my-item .edit-button {
+    position: absolute;
+    top: 15px;
+    left: 140px;
+    font-size: 30px;
+    transition: opacity 500ms ease;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    opacity: 0.5;
+}
+
+.my-item .delete-button {
+    position: absolute;
+    top: 17px;
+    left: 340px;
+    font-size: 25px;
+    transition: opacity 500ms ease;
+    cursor: pointer;
+}
+
+.my-item .delete-button:hover {
+    opacity: 0.5;
+}
+
+.full-item form input, select, textarea {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-left: 0;
+}
+
+.full-item .button {
+    background: silver;
+    padding: 10px 30px 10px 10px;
+    width: 10%;
+    border-radius: 50px;
+    margin-left: 260px;
+    margin-top: 10px;
+    transition: transform 500ms ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.full-item .button:hover {
+    transform: scale(1.05);
+    border-color: black;
+}
+
+textarea {
+    width: 90%;
+    height: 100px;
+}
+
+label {
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.create-item {
+    background: #f2f2f2;
+    width: 50%;
+    margin-left: 300px;
+    margin-top: 35px;
+    height: 680px;
+    margin-bottom: 20px;
+}
+
+.create-item h1 {
+    font-weight: lighter;
+    margin-left: 120px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.create-item h3 {
+    font-weight: lighter;
+    margin-left: 25px;
+}
+
+.create-item .radio {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.create-item input {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.create-item .button {
+    background: silver;
+    padding: 10px 22px;
+    width: 10%;
+    border-radius: 50px;
+    margin-left: 260px;
+    margin-top: 10px;
+    transition: transform 500ms ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.create-item .button:hover {
+    transform: scale(1.1);
+    border-color: black;
+}
+
+.edit-item .button {
+    background: silver;
+    padding: 10px 20px 10px 10px;
+    width: 10%;
+    border-radius: 50px;
+    margin-left: 260px;
+    margin-top: 10px;
+    transition: transform 500ms ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.edit-item .button:hover {
+    transform: scale(1.1);
+    border-color: black;
+}
+
+.create-item .item {
+    width: 50%;
+    margin-left: 20px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 100px;
 }
