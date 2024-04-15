@@ -30,29 +30,29 @@ export class CreateItem extends Component {
                     <label htmlFor="Услуга">Услуга</label> <br/>
 
                     <input type="radio" className="radio" name="type"
-                           onChange={(e) => this.setState({type: e.target.value})}/>
+                           onChange={(e) => this.setState({type: "P"})}/>
                     <label htmlFor="Заказ">Заказ</label> <br/><br/>
 
                     <h3>Категория:</h3>
 
                     <input type="radio" className="radio" name="category"
-                           onChange={(e) => this.setState({category: "repair"})}/>
+                           onChange={(e) => this.setState({category: 1})}/>
                     <label>Автосервис</label> <br/>
 
                     <input type="radio" className="radio" name="category"
-                           onChange={(e) => this.setState({category: "farm"})}/>
+                           onChange={(e) => this.setState({category: 2})}/>
                     <label>Сельское хозяйство</label>
 
                     <input type="radio" className="radio" name="category"
-                           onChange={(e) => this.setState({category: "building"})}/>
+                           onChange={(e) => this.setState({category: 3})}/>
                     <label>Строительство</label> <br/>
 
                     <input type="radio" className="radio" name="category"
-                           onChange={(e) => this.setState({category: "renovation"})}/>
+                           onChange={(e) => this.setState({category: 4})}/>
                     <label>Ремонт квартир</label>
 
                     <input type="radio" className="radio" name="category"
-                           onChange={(e) => this.setState({category: "other"})}/>
+                           onChange={(e) => this.setState({category: 5})}/>
                     <label>Прочее</label>
                     <br/><br/>
 
@@ -61,7 +61,7 @@ export class CreateItem extends Component {
                               onChange={(e) => this.setState({disc: e.target.value})}></textarea> <br/><br/>
 
                     <h3>Цена:</h3>
-                    <input placeholder="Телефон: " onChange={(e) => this.setState({price: e.target.value})}/>
+                    <input placeholder="Введите цену в рублях: " onChange={(e) => this.setState({price: e.target.value})}/>
 
                     <div className="button" onClick={() => {
                         this.myForm.reset()

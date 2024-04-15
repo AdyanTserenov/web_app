@@ -4,7 +4,7 @@ import Userfront from "@userfront/toolkit/react";
 
 export default function RequireAuth({children}) {
     let location = useLocation();
-    if (!Userfront.tokens.accessToken) {
+    if (!localStorage.getItem("auth_token")) {
         return <Navigate to="../login" state={{ from: location }} replace />;
     }
     return children;

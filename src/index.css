@@ -162,6 +162,10 @@ header .border {
     overflow: auto;
 }
 
+.full-item input {
+    font-weight: lighter;
+}
+
 .full-item > div {
     width: 600px;
     position: relative;
@@ -253,34 +257,89 @@ p.confirm {
 }
 
 .auth {
-    padding: 35px;
+    width: 360px;
+    background-color: white;
+    margin: 100px 435px 400px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    padding: 20px;
 }
 
-.auth button.reset-button {
-    background: #f2f2f2;
-    border-radius: 50px;
-    padding: 10px 20px;
-    margin-left: 520px;
-    margin-top: 50px;
-    font-size:16px;
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.success-message {
+    background-color: #4caf50;
+    padding: 15px;
+    color: white;
+    text-align: center;
     font-weight: lighter;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: all 500ms ease;
+    font-size: 20px;
+    border-radius: 50px;
 }
 
-.auth button.reset-button:hover {
-    border-color: silver;
-    transform: scale(1.1);
+.form-field {
+    margin: 10px 0 10px 0;
+    padding: 15px;
+    font-size: 16px;
+    border: 0;
+}
+
+.auth span {
+    font-size: 14px;
+    color: red;
+    margin-bottom: 15px;
+}
+
+.auth input {
+    background: #f2f2f2;
+    font-weight: lighter;
+}
+
+.error {
+    border: 2px solid #ffa4a4;
+    font-weight: lighter;
+}
+
+.auth button {
+    margin-top: 25px;
+    background: #4caf50;
+    color: white;
+    font-weight: lighter;
+    cursor: pointer;
+    border-radius: 500px;
+    transition: opacity 500ms ease;
+}
+
+.auth button:hover {
+    opacity: 0.75;
 }
 
 .profile {
     margin-top: 35px;
 }
 
-.profile .logout {
-    margin-top: 70px;
-    margin-left: 515px;
+.profile button {
+    margin-left: 575px;
+    margin-top: 25px;
+    margin-bottom: 100px;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    background: #e42c2c;
+    border: 5px solid transparent;
+    font-size: 20px;
+    color: #fffaf1;
+    font-weight: lighter;
+    transition: opacity 500ms ease;
+    cursor: pointer;
+}
+
+.profile button:hover {
+    opacity: 0.75;
 }
 
 .check {
@@ -401,10 +460,16 @@ label {
     margin-top: 10px;
 }
 
+.create-item textarea {
+    margin-left: 20px;
+    font-weight: lighter;
+}
+
 .create-item input {
     padding: 5px 10px;
     font-size: 16px;
     margin-left: 20px;
+    font-weight: lighter;
 }
 
 .create-item .button {

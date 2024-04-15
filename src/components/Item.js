@@ -1,15 +1,18 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 import { FaStar } from "react-icons/fa";
+import axios from "axios";
 
 export class Item extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: this.props.findUserById(this.props.item.id)
+            user: ""
         }
+        this.findUserById = this.findUserById.bind(this)
+        this.findUserById(this.props.item.created_by)
     }
     render() {
-        return (
+        return (this.state.user !== undefined &&
             <div className="item">
                 <img src={"./img/" + this.state.user.img} onClick={() => this.props.onShowItem(this.props.item)}/>
                 {this.props.item.type === "S" && (
@@ -30,6 +33,34 @@ export class Item extends Component {
                 <b>{this.props.item.price}₽</b>
             </div>
         )
+    }
+
+    findUserById(creator_id) {
+        if (creator_id !== undefined) {
+            let config = {
+                headers: {
+                    Authorization: `Bearer ${localStorage.auth_token}`
+                }
+            }
+            axios.get(`https://api.dev.kodlmsh.ru/api/users/authuser/${creator_id}`, config)
+                .then((response) => {
+                    response.data = {
+                        id: response.data.id,
+                        first_name: response.data.first_name,
+                        last_name: response.data.last_name,
+                        email: response.data.email,
+                        phone: response.data.phone_number,
+                        img: "no-avatar.webp",
+                        feedback: 0,
+                        rating: 0,
+                        confirmed: "yes"
+                    }
+                    this.setState({user: response.data})
+                })
+                .catch(function (error) {
+                    console.log(error.response)
+                })
+        }
     }
 }
 

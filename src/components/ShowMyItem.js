@@ -23,7 +23,7 @@ export class ShowMyItem extends Component {
                         <label htmlFor="Услуга">Услуга</label> <br/>
 
                         <input type="radio" className="radio" name="type"
-                               onChange={(e) => this.setState({type: e.target.value})}/>
+                               onChange={(e) => this.setState({type: "P"})}/>
                         <label htmlFor="Заказ">Заказ</label> <br/><br/>
 
                         <h3>Категория:</h3>
@@ -53,7 +53,7 @@ export class ShowMyItem extends Component {
                                   onChange={(e) => this.setState({disc: e.target.value})}></textarea> <br/><br/>
 
                         <h3>Цена:</h3>
-                        <input placeholder="Телефон: " onChange={(e) => this.setState({price: e.target.value})}/>
+                        <input placeholder="Введите цену: " onChange={(e) => this.setState({price: e.target.value})}/>
 
                         <div className="button" onClick={() => {
                             this.myForm.reset()
